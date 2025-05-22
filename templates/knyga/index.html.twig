@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Knygos{% endblock %}
+
+{% block body %}
+
+{% block head %}
+
+
+<link rel="stylesheet" href="{{ asset('css/flash.css') }}">
+<link rel="stylesheet" href="{{ asset('css/knyga.css') }}">
+<script src="{{ asset('js/flash.js') }}"></script>
+
+{% endblock %}
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-overlay flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+    <h1>Knygos</h1>
+<div class="content-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pavadinimas</th>
+                <th>Autorius</th>
+                <th>Isleidimo Metai</th>
+                <th>Isbn Numeris</th>
+                <th>Veiksmai</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for knyga in pagination %}
+
+            <tr>
+                <td>{{ knyga.pavadinimas }}</td>
+                <td>{{ knyga.autorius }}</td>
+                <td>{{ knyga.isleidimoMetai }}</td>
+                <td>{{ knyga.isbnNumeris }}</td>
+                <td>
+                    <a href="{{ path('app_knyga_show', {'id': knyga.id}) }} " class="action-button button-show">Žiūrėti</a>
+                    <a href="{{ path('app_knyga_edit', {'id': knyga.id}) }}" class="action-button button-edit">Redaguoti</a>
+                </td>
+            </tr>
+            
+        {% else %}
+            <tr>
+                <td colspan="6">Nėra įrašų</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{{ knp_pagination_render(pagination, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
+{% endblock %}
+
+</div>
+<div class="center-button">
+    <a href="{{ path('app_knyga_new') }}">Pridėti knygą</a>
+</div>
+
+{% endblock %}
+
+

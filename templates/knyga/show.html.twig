@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Knyga{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/knyga.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Knygos informacija</h1>
+
+    <table class="table styled-table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ knyga.id }}</td>
+            </tr>
+            <tr>
+                <th>Pavadinimas</th>
+                <td>{{ knyga.pavadinimas }}</td>
+            </tr>
+            <tr>
+                <th>Autorius</th>
+                <td>{{ knyga.autorius }}</td>
+            </tr>
+            <tr>
+                <th>Išleidimo metai</th>
+                <td>{{ knyga.isleidimoMetai }}</td>
+            </tr>
+            <tr>
+                <th>ISBN numeris</th>
+                <td>{{ knyga.isbnNumeris }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="button-group">
+        <a href="{{ path('app_knyga_index') }}" class="action-button button-back">Atgal</a>
+        <a href="{{ path('app_knyga_edit', {'id': knyga.id}) }}" class="action-button button-edit">Redaguoti</a>
+        {{ include('knyga/_delete_form.html.twig') }}
+    </div>
+
+    
+{% endblock %}

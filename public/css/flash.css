@@ -1,0 +1,68 @@
+.flash-overlay {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #4caf50; /* default green for success */
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.flash-danger {
+    background-color: #f44336;
+}
+
+.flash-warning {
+    background-color: #ff9800;
+}
+
+.flash-info {
+    background-color: #2196f3;
+}
+
+.flash-success {
+    background-color: #4caf50;
+}
+
+.flash-overlay {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeOut 4s ease forwards;
+}
+
+/* Flash colors */
+.flash-success {
+    background-color: #28a745;
+}
+
+.flash-error,
+.flash-danger {
+    background-color: #dc3545;
+}
+
+.flash-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+@keyframes fadeOut {
+    0%   { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+

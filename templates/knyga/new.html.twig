@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nauja Knyga{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/knyga.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1 class="page-title">Pridėti naują knygą</h1>
+
+    {{ include('knyga/_form.html.twig', {'button_label': 'Išsaugoti'}) }}
+
+    <div class="button-group">
+        <a href="{{ path('app_knyga_index') }}" class="action-button button-back">Atgal</a>
+    </div>
+{% endblock %}
+

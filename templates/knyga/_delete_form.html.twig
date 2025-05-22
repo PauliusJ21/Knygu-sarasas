@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('app_knyga_delete', {'id': knyga.id}) }}" onsubmit="return confirm('Ar tikrai norite ištrinti šią knygą?');" style="display: inline;">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ knyga.id) }}">
+    <button class="action-button button-delete">Ištrinti</button>
+</form>
+

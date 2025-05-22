@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redaguoti Knygą{% endblock %}
+
+{% block body %}
+    <h1>Redaguoti Knygą</h1>
+    {{ include('knyga/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="button-group">
+        <a href="{{ path('app_knyga_index') }}" class="action-button button-back">Atgal</a>
+        {{ include('knyga/_delete_form.html.twig') }}
+    </div>
+
+    
+{% endblock %}

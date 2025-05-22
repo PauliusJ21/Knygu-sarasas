@@ -1,0 +1,15 @@
+<div class="form-container">
+    {{ form_start(form) }}
+        <div class="form-fields">
+            {{ form_row(form.pavadinimas) }}
+            {{ form_row(form.autorius) }}
+            {{ form_row(form.isleidimoMetai) }}
+            {{ form_row(form.isbnNumeris) }}
+        </div>
+        <div class="form-actions">
+            <button class="saving-button button-save">{{ button_label|default('Išsaugoti') }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>
+
+
